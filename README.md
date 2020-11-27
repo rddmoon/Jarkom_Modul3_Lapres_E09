@@ -9,15 +9,18 @@ Melakukan setting UML sesuai dengan topologi berikut
 * Aktifkan dengan command `sysctl -p`
 * Buat `iptables.sh` pada uml surabaya dengan konfigurasi
 
-``iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.168.0.0/16
+```
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.168.0.0/16
 
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.168.1.0/16``
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.168.1.0/16
+```
 * Jalankan iptables.sh
 * setting source list pada `nano /etc/apt/sources.list` dengan konfigurasi `deb http://boyo.its.ac.id/debian stretch main contrib non-free`
 * Setting interface di tiap uml dengan `nano /etc/network/interfaces` seperti berikut
 * uml SURABAYA
 
-`auto lo
+```
+auto lo
 iface lo inet loopback
 
 auto eth0
@@ -40,17 +43,20 @@ auto eth3
 iface eth3 inet static
 address 10.151.71.81
 netmask 255.255.255.248
+```
 
 * uml malang
 
-``auto lo
+```
+auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
 address 10.151.71.82
 netmask 255.255.255.248
-gateway 10.151.71.81``
+gateway 10.151.71.81
+```
 
 * uml mojokerto
 
@@ -61,52 +67,63 @@ auto eth0
 iface eth0 inet static
 address 10.151.71.83
 netmask 255.255.255.248
-gateway 10.151.71.81``
+gateway 10.151.71.81
+```
 
 * uml tuban
 
-``auto lo
+```
+auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
 address 10.151.71.84
 netmask 255.255.255.248
-gateway 10.151.71.81``
+gateway 10.151.71.81
+```
 
 * uml gresik
 
-``auto lo
+```
+auto lo
 
 iface lo inet loopback
 
 auto eth0
 
-iface eth0 inet dhcp ``
+iface eth0 inet dhcp 
+```
 
 * uml sidoarjo
 
+```
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
+```
 
 * uml madiun
 
+```
 auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
+```
 
 * uml banyuwangi
 
+```
 auto lo
 iface lo inet loopback
 
 auto eth0
-iface eth0 inet dhcp`
+iface eth0 inet dhcp
+```
 
 * lakukan `service networking restart` pada masing masing uml
 

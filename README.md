@@ -176,6 +176,7 @@ Setting user autentikasi
 
 Setting agar Proxy server hanya dapat diakses pada hari Selasa-Rabu pukul 13.00-18.00.
 * Lakukan setting pada `nano /etc/squid/acl.conf` dengan konfigurasi sebagai berikut
+
 `acl AVAILABLE_WORKING time TW 13:00-18:00`
 
 **soal 9**
